@@ -1,0 +1,26 @@
+<!-- Componente: Cabecero -->
+<div class="flex justify-center">
+    <div class="p-6 rounded-lg border border-primary text-center">
+        <h4 class="mb-3 text-xl font-semibold">Presupuesto Disponible:</h4>
+        <div class="text-3xl font-bold text-yellow-500">
+            {{ presupuestoTotal | currency:'MNX':'$':'1.2-2' }} 
+        </div>
+        <div class="flex mt-4 justify-center space-x-8">
+            <div class="text-center">
+                <div class="text-uppercase text-sm font-semibold">INGRESOS</div>
+                <div class="text-green-500 text-lg">
+                    {{ ingresoTotal | currency:'MNX':'$':'1.2-2' }} 
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="text-uppercase text-sm font-semibold">EGRESOS</div>
+                <div class="text-red-500 text-lg">
+                    {{ egresoTotal | currency:'MNX':'$':'1.2-2' }} 
+                    <span class="bg-green-500 text-white rounded-full px-2 ml-2">
+                        {{ porcentajeTotal | percent}} 
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
