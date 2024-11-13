@@ -1,0 +1,48 @@
+<!-- Componente: Formulario -->
+<div class="flex justify-center mt-4">
+    <div class="w-full max-w-lg">
+        <form class="flex space-x-2 " #f="ngForm" (ngSubmit)="f.form.valid && agregarOperacion()">
+            <div class="flex-shrink-0">
+                <select (change)="tipoOperacion($event)" 
+                class="text-white p-2 rounded-lg"
+                    [ngClass]="{
+                        'bg-green-500': tipo === 'ingresoOperacion', 
+                        'bg-red-500': tipo === 'egresoOperacion'
+                    }"
+                >
+                    <option value="ingresoOperacion" selected>+</option>
+                    <option value="egresoOperacion">-</option>
+                </select>
+            </div>
+            <div class="flex-grow">
+                <input type="text" class="form-control p-2 rounded-lg w-full text-white placeholder-white" placeholder="Descripción" required
+                    [(ngModel)]="descripcionInput" name="descripcionInput"
+                    [ngClass]="{
+                        'bg-green-500 ': tipo === 'ingresoOperacion', 
+                        'bg-red-500': tipo === 'egresoOperacion'
+                    }"
+                />
+            </div>
+            <div class="flex-shrink-0">
+                <input type="number" class="form-control border-green-500 p-2 rounded-lg text-white  placeholder-white" placeholder="Valor" required
+                    [(ngModel)]="valorInput" name="valorInput"
+                    [ngClass]="{
+                        'bg-green-500 ': tipo === 'ingresoOperacion', 
+                        'bg-red-500': tipo === 'egresoOperacion'
+                    }"
+                />
+            </div>
+            <div class="flex-shrink-0">
+                <button type="submit" class="text-white p-2 rounded-lg flex items-center"
+                    [ngClass]="{
+                        'bg-green-500 ': tipo === 'ingresoOperacion', 
+                        'bg-red-500': tipo === 'egresoOperacion'
+                    }"
+                >
+                    <i class="bi bi-check-circle">:v</i>
+                    <!-- Icono -->
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
